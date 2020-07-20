@@ -23,6 +23,7 @@ echo Cache size for L2 is $cache doubles
 
 for i in $folder/*mtx
 do
+	echo "Collecting results for $i"
 	for K in 128 1024
 	do
 		./$jspmm $i cache $cache Nk $K

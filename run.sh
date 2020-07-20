@@ -30,6 +30,6 @@ do
 	python3 $script $result >> $rcsv
 done
 
-
+echo "Summarizing..."
 python3 $summarize $rcsv $summary
 
