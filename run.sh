@@ -1,13 +1,14 @@
 #!/bin/bash
 data=$1
-result="results/results.txt"
+resultdir="results"
+result="$resultdir/results.txt"
 scr=scripts
 jstream=$scr/jstreamex.py
 taco=$scr/tacoex.py
 mkl=$scr/mklex.py
 csb=$scr/csbex.py
 collect=$scr/collect.sh
-rcsv="results/results.csv"
+rcsv="$resultdir/results.csv"
 summarize=$scr/summarize.py
 summary="summary.csv"
 
@@ -15,6 +16,11 @@ summary="summary.csv"
 #cd CSB
 #make spmm_dall
 #cd ..
+
+if [ ! -d $resultdir ]; then
+  mkdir -p $resultdir;
+fi
+
 
 bash $collect $data >>  $result
 
