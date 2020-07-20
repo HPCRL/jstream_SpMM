@@ -14,7 +14,7 @@ make
 
 ## Artifact Evaluation Usage
 
-Scripts require python3. Use diwnload.sh to download input matrix files from suitesparse.
+Scripts require python3. Use download.sh to download input matrix files from suitesparse.
 
 ```
 ./download.sh
