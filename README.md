@@ -1,6 +1,7 @@
 # J Streaming Benchmarks
 
-SC 2020 submission for J Streaming Code
+SC 2020 submission for J Streaming Code.
+
 git-repository: https://github.com/HPCRL/jstream_SC2020_AE
 
 ## Building 
