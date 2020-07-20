@@ -1,0 +1,61 @@
+========================================================================
+    APPLICATION : CSB Overview
+========================================================================
+
+Author: Aydin Buluc, LBNL, abuluc@lbl.gov
+Date: 2/28/2014
+
+Classes
+-------
+
+CSC: 
+- Class that implements the standard "compressed sparse column" format.
+- Used for baseline comparisons.
+
+BiCSB:
+- Production (final) class that implements "compressed sparse blocks"
+- Nonzeros within a block are stored in "bit-interleaved" order
+- Described in http://dx.doi.org/10.1145/1583991.1584053
+
+BmCSB:
+- Class that implements bitmasked register blocks on top of CSB
+- Change the register block dimension inside utility.h (RBDIM), options are 2,4,8 (default is 8)
+- Decribed in http://doi.ieeecomputersociety.org/10.1109/IPDPS.2011.73
+
+CSBSYM:
+- Class that implements the symmetric algorithm
+- Decribed in http://doi.ieeecomputersociety.org/10.1109/IPDPS.2011.73
+
+SYM/CSBSYM [do not use]: 
+- Experimental class that implements a variant of "compressed sparse blocks"
+- Nonzeros within a block are stored in row-major order
+- Various optimizations are tried in this class, such as SSE, prefetching, etc.
+
+Files
+-----
+
+csb_spmv(t)_test.cpp : 
+- Driver programs for both sequential and parallel Ax and A'x runs
+- Usage "./executable matrixfile nosym/sym ascii/binary" or "./executable" in which case read the ascii file matrix.txt if exists (only nosym works for now - special support for symmetric matrices will be available soon)
+- Executables are parspmv, parspmvt, seqspmv, seqspmvt where names are self
+  explanatory.
+- For parallel execution, you can specify the number of workers by setting
+  the environmental variable CILK_NWORKERS.
+
+spmm_test.cpp:
+- Driver program for the multiple vector cases of Ax and A'x (i.e. SpMM for AX and A'X) 
+
+bwtest-mimd.cpp :
+- Usage "./bwtest-mimd -n file_1 file_2 ... file_n" 
+- Bandwidth test program that reads does SpMV's in n different matrices simultaneously
+- pthreads implementation
+
+oskispmv(t).cpp :
+- Usage "./oskispmv(t) matrixfile"
+- Compares the performance of our serial implementations with plain OSKI to reveal any anomalies
+
+utility.h :
+- Includes constants, preprocessors directives and utility functions
+
+
+/////////////////////////////////////////////////////////////////////////////
