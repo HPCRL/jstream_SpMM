@@ -1,16 +1,11 @@
 # J Streaming Benchmarks
 
 SC 2020 submission for J Streaming Code
-For any updates check the live version of the repo at:
-https://github.com/HPCRL/jstream_SC2020_AE
+git-repository: https://github.com/HPCRL/jstream_SC2020_AE
 
-## Requirements
+## Building 
 
-
-
-## Installation
-
-Run make command to compile.
+J Stream requires Intel C Compiler to compile. Run make command to compile.
 
 ```
 make
@@ -18,7 +13,7 @@ make
 
 ## Artifact Evaluation Usage
 
-Use run.sh script to run benchmark for SC results and give the name of folder containing input files as parameter to the script
+Scripts require python3. Use run.sh script to run benchmark for SC results and give the name of folder containing input files as parameter to the script.
 
 ```
 
