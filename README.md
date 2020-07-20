@@ -26,7 +26,7 @@ Use run.sh script to run benchmark for SC results and give the name of folder co
 ./run.sh path_to_folder_contatining_mtx_files
 ```
 
-
+Before running new tests delete the results from the previous tests by deleting results folder.
 
 
 
