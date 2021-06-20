@@ -12,7 +12,7 @@ SRC = $(wildcard $(SRC_DIR)/*.cc)
 OBJ = $(SRC:$(SRC_DIR)/%.cc=$(OBJ_DIR)/%.o)
 
 CPPFLAGS += 
-CFLAGS += -Wall -Wno-write-strings -g -std=c++11 -O3 -Ofast  -qopenmp $(EXTRA) -march=native -restrict -mkl
+CFLAGS += -Wall -Wno-write-strings -g -std=c++11 -O3 -Ofast  -qopenmp $(EXTRA) -march=native  -mkl
 #CFLAGS += -Wall -Wno-write-strings -g -std=c++11 -O0 -qopenmp $(EXTRA) -march=native -restrict -mkl
 LDFLAGS += 
 LDLIBS += 
@@ -20,7 +20,7 @@ LDLIBS +=
 
 .PHONY: all clean
 
-all: | ${DIRS} $(BIN) csb
+all: | ${DIRS} $(OBJ) $(BIN) 
 
 papi: EXTRA += "-D PAPI"
 papi: clean dir 

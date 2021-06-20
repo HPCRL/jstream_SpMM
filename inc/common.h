@@ -38,7 +38,7 @@
 #define PADB 8
 #define PADC 8
 #define BF 4
-#define REP 100
+#define REP 25
 #define BSIZE (BF*32)
 #define MIN(a,b) (((a)<(b))?(a):(b))
 #define MAX(a,b) (((a)>(b))?(a):(b))

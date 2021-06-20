@@ -91,8 +91,8 @@ TYPE *A_value=dv;
 //===========================Dense MM============================================================================================
 //===========================Dense MM============================================================================================clea
 
-__assume_aligned(row_number, 64);
-__assume_aligned(A_value, 64);
-__assume_aligned(C, 64);
-__assume_aligned(B, 64);
-__assume_aligned(column_index, 64);        
+//__assume_aligned(row_number, 64);
+//__assume_aligned(A_value, 64);
+//__assume_aligned(C, 64);
+//__assume_aligned(B, 64);
+//__assume_aligned(column_index, 64);        

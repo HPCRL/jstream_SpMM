@@ -248,8 +248,8 @@ uint64_t active_cols(int Ti, bool print)
 	uint64_t* intervals = *intervalsp;
 	uint64_t* notsmaller = *notsmallerp;
 	uint64_t* notsmallerweighted = *notsmallerweightedp;
-	if(Ti > nc)
-		Ti = nc;
+	if(Ti > nr)
+		Ti = nr;
 
 
 	uint64_t div = Ti;
@@ -292,10 +292,11 @@ int pick_tile(int &Ti, int &Tk , int Nk , int cache)
 				continue;
 			uint64_t test =  active_cols(i,false);
 
-			uint64_t model = ((uint64_t )ne )* ((uint64_t) Nk) / k *5 / 2; // sparse part
+			uint64_t model = ((uint64_t )ne )* ((uint64_t) Nk) / k *5 / 2*4; // sparse part
+//			uint64_t model = ((uint64_t )ne )* 5 / 2; // sparse part
 			model += test * ((uint64_t) Nk) ; // input part
 			model += 2* ((uint64_t) nr)*((uint64_t) Nk); // output part
-//			cout<<i<<"\t"<<test<<'\t'<<model/8<<endl;
+//			cout<<i<<"\t"<<k<<"\t"<<test<<'\t'<<model/8<<"\t"<<test * ((uint64_t) Nk)/8<<endl;
 			if (lowest == -1 || model < lowest)
 			{
 				lowest = model;

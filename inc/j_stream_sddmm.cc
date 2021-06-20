@@ -19,7 +19,7 @@
 	for (int k = 0; k < K; k+=tile_size) //slices
 	{
 		#ifndef SINGLE
-			#pragma ivdep//k
+//			#pragma ivdep//k
 			#pragma vector aligned//k
 			//#pragma temporal (C)
 			#pragma omp parallel for  //schedule(dynamic, 1) 
@@ -29,7 +29,7 @@
 			if(segment[row_panel]==segment[row_panel+1]) continue;
 #else
 	#ifndef SINGLE
-		#pragma ivdep//k
+//		#pragma ivdep//k
 		#pragma vector aligned//k
 		//#pragma temporal (C)
 		#pragma omp parallel for  //schedule(dynamic, 1) 

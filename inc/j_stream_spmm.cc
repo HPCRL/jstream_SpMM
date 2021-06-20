@@ -21,7 +21,7 @@
 for (int k = 0; k < K; k += tile_size)   //slices
 {
 #ifndef SINGLE
-#pragma ivdep//k
+//#pragma ivdep//k
 #pragma vector aligned//k
     //#pragma temporal (C)
     #pragma omp parallel for schedule(static, 1)
@@ -36,7 +36,7 @@ for (int k = 0; k < K; k += tile_size)   //slices
 
 #else
 #ifndef SINGLE
-#pragma ivdep//k
+//#pragma ivdep//k
 #pragma vector aligned//k
 //#pragma temporal (C)
 #pragma omp parallel for schedule(static, 1)

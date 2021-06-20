@@ -29,14 +29,14 @@ int taco_spmm(taco_tensor_t *C, taco_tensor_t *A, taco_tensor_t *B)
 {
 	int C1_dimension = (int)(C->dimensions[0]);
 	int C2_dimension = (int)(C->dimensions[1]);
-	double* restrict C_vals2 = (double*)(C->vals);
+	double*  C_vals2 = (double*)(C->vals);
 	int A1_dimension = (int)(A->dimensions[0]);
-	int* restrict A2_pos = (int*)(A->indices[1][0]);
-	int* restrict A2_crd = (int*)(A->indices[1][1]);
-	double* restrict A_vals = (double*)(A->vals);
+	int*  A2_pos = (int*)(A->indices[1][0]);
+	int*  A2_crd = (int*)(A->indices[1][1]);
+	double*  A_vals = (double*)(A->vals);
 	int B1_dimension = (int)(B->dimensions[0]);
 	int B2_dimension = (int)(B->dimensions[1]);
-	double* restrict B_vals2 = (double*)(B->vals);
+	double*  B_vals2 = (double*)(B->vals);
 
 	#pragma omp parallel for schedule(static)
 	for (int32_t pC = 0; pC < (C1_dimension * C2_dimension); pC++) {
@@ -130,17 +130,17 @@ int taco_spmm(taco_tensor_t *C, taco_tensor_t *A, taco_tensor_t *B)
 int taco_sddmm(taco_tensor_t *D, taco_tensor_t *A, taco_tensor_t *B, taco_tensor_t *C)
 {
 	int D1_dimension = (int)(D->dimensions[0]);
-	double* restrict D_vals = (double*)(D->vals);
+	double*  D_vals = (double*)(D->vals);
 	int A1_dimension = (int)(A->dimensions[0]);
-	int* restrict A2_pos = (int*)(A->indices[1][0]);
-	int* restrict A2_crd = (int*)(A->indices[1][1]);
-	double* restrict A_vals = (double*)(A->vals);
+	int*  A2_pos = (int*)(A->indices[1][0]);
+	int*  A2_crd = (int*)(A->indices[1][1]);
+	double*  A_vals = (double*)(A->vals);
 	int B1_dimension = (int)(B->dimensions[0]);
 	int B2_dimension = (int)(B->dimensions[1]);
-	double* restrict B_vals2 = (double*)(B->vals);
+	double*  B_vals2 = (double*)(B->vals);
 	int C1_dimension = (int)(C->dimensions[0]);
 	int C2_dimension = (int)(C->dimensions[1]);
-	double* restrict C_vals2 = (double*)(C->vals);
+	double*  C_vals2 = (double*)(C->vals);
 
 	int32_t pD2 = 0;
 
@@ -261,14 +261,14 @@ int taco_spmm_papi(taco_tensor_t *C, taco_tensor_t *A, taco_tensor_t *B)
 {
 	int C1_dimension = (int)(C->dimensions[0]);
 	int C2_dimension = (int)(C->dimensions[1]);
-	double* restrict C_vals = (double*)(C->vals);
+	double*  C_vals = (double*)(C->vals);
 	int A1_dimension = (int)(A->dimensions[0]);
-	int* restrict A2_pos = (int*)(A->indices[1][0]);
-	int* restrict A2_crd = (int*)(A->indices[1][1]);
-	double* restrict A_vals = (double*)(A->vals);
+	int*  A2_pos = (int*)(A->indices[1][0]);
+	int*  A2_crd = (int*)(A->indices[1][1]);
+	double*  A_vals = (double*)(A->vals);
 	int B1_dimension = (int)(B->dimensions[0]);
 	int B2_dimension = (int)(B->dimensions[1]);
-	double* restrict B_vals = (double*)(B->vals);
+	double*  B_vals = (double*)(B->vals);
 
 	#pragma omp parallel for schedule(static)
 	for (int32_t pC = 0; pC < (C1_dimension * C2_dimension); pC++) {
@@ -329,17 +329,17 @@ int taco_spmm_papi(taco_tensor_t *C, taco_tensor_t *A, taco_tensor_t *B)
 int taco_sddmm_papi(taco_tensor_t *D, taco_tensor_t *A, taco_tensor_t *B, taco_tensor_t *C)
 {
 	int D1_dimension = (int)(D->dimensions[0]);
-	double* restrict D_vals = (double*)(D->vals);
+	double*  D_vals = (double*)(D->vals);
 	int A1_dimension = (int)(A->dimensions[0]);
-	int* restrict A2_pos = (int*)(A->indices[1][0]);
-	int* restrict A2_crd = (int*)(A->indices[1][1]);
-	double* restrict A_vals = (double*)(A->vals);
+	int*  A2_pos = (int*)(A->indices[1][0]);
+	int*  A2_crd = (int*)(A->indices[1][1]);
+	double*  A_vals = (double*)(A->vals);
 	int B1_dimension = (int)(B->dimensions[0]);
 	int B2_dimension = (int)(B->dimensions[1]);
-	double* restrict B_vals = (double*)(B->vals);
+	double*  B_vals = (double*)(B->vals);
 	int C1_dimension = (int)(C->dimensions[0]);
 	int C2_dimension = (int)(C->dimensions[1]);
-	double* restrict C_vals = (double*)(C->vals);
+	double*  C_vals = (double*)(C->vals);
 
 	int32_t pD2 = 0;
 
@@ -413,7 +413,7 @@ taco_tensor_t* create_dense(int M, int N, int mode)
 	C -> indices = NULL;
 	int C1_dimension = (int) N;
 	int C2_dimension = (int) M;
-	double* restrict C_vals = (double*)(C->vals);
+	double*  C_vals = (double*)(C->vals);
 
 	C_vals = (double*)malloc(sizeof(double) * (C1_dimension * C2_dimension));
 
@@ -447,8 +447,8 @@ taco_tensor_t* create_sparse(taco_tensor_t* A, int mode )
 	for (int i =0; i<2; i++)
 		C -> indices[i] = new uint32_t*[2];
 	int A1_dimension = (int)(A->dimensions[0]);
-	int* restrict A2_pos = (int*)(A->indices[1][0]);
-	int* restrict A2_crd = (int*)(A->indices[1][1]);
+	int*  A2_pos = (int*)(A->indices[1][0]);
+	int*  A2_crd = (int*)(A->indices[1][1]);
 
 	TYPE* C_vals = (TYPE*) malloc(sizeof(TYPE)*(C->vals_size));
 	uint32_t* C_col_ind = (uint32_t*) malloc(sizeof(uint32_t)*(C->vals_size));
