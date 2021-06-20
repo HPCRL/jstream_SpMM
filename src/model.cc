@@ -96,7 +96,8 @@ int init_model(bool print)
 
 	gettimeofday(&endtime,NULL); 
 	elapsed = ((endtime.tv_sec-starttime.tv_sec)*1000000 + endtime.tv_usec-starttime.tv_usec)/1000000.0;
-	cout<<"Preprocessing for the model time: " << elapsed <<endl;
+	if(print)
+		cout<<"Preprocessing for the model time: " << elapsed <<endl;
 	*intervalsp = intervals;
 	*notsmallerp = notsmaller;
 	*notsmallerweightedp = notsmallerweighted;

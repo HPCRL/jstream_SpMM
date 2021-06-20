@@ -63,7 +63,7 @@ int main(int argc, char **argv)
 		}
 	}
 
-	init_model();
+	init_model(false);
 	pick_tile(Ti,Tk,Nk,cache);
 
 //	cout<<nr/28<<endl;
@@ -109,7 +109,7 @@ int main(int argc, char **argv)
 		else
 			d_data = accol * Nk/8;
 	
-		cout<<sp_data + d_data << " "<<sp_data<<" "<<d_data<<endl;	
+//		cout<<sp_data + d_data << " "<<sp_data<<" "<<d_data<<endl;	
 		if(model_min == 0 || model_min >= sp_data + d_data)
 		{
 			model_min = sp_data + d_data;
@@ -117,7 +117,7 @@ int main(int argc, char **argv)
 		}
 	}
 
-	cout<<"Ti "<<nc<<" Tk "<<best_tk<<endl;
+	cout<<"Tj "<<nc<<" Tk "<<best_tk<<endl;
 	
 	//cout<<"Ti, Tk, cache, "<<Ti << ", "<<Tk<<", "<<cache<<endl;
 	/*
