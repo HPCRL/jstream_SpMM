@@ -1,8 +1,8 @@
-# J Streaming Benchmarks
+# J Streaming SpMM
 
-SC 2020 submission for J Streaming Code.
+J Streaming Code for SpMM (sparse-dense matrix-matrix multiplication)
 
-git-repository: https://github.com/HPCRL/jstream_SC2020_AE
+git-repository: https://github.com/HPCRL/jstream_SpMM
 
 ## Building 
 
@@ -12,7 +12,7 @@ J Stream requires Intel C Compiler to compile. Run make command to compile.
 make
 ```
 
-## Artifact Evaluation Usage
+## Example Usage (for matrices used in SC 2020 paper)
 
 Scripts require python3. Use download.sh to download input matrix files from Suitesparse.
 
